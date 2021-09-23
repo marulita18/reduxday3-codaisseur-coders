@@ -3,6 +3,7 @@ import moment from "moment";
 import { fetchNext5Posts } from "../store/feeds/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { selectFeedLoading, selectFeedPosts } from "../store/feeds/selectors";
+import { Link } from "react-router-dom";
 
 export default function PostsFeed() {
   const loading = useSelector(selectFeedLoading);
@@ -24,7 +25,9 @@ export default function PostsFeed() {
         {posts.map((post) => {
           return (
             <div key={post.id}>
-              <h3>{post.title}</h3>
+              <h3>
+                <Link to={`/post/${post.id}`}>{post.title}</Link>
+              </h3>
               <p className="meta"></p>
             </div>
           );
