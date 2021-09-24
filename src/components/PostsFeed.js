@@ -28,6 +28,11 @@ export default function PostsFeed() {
               <h3>
                 <Link to={`/post/${post.id}`}>{post.title}</Link>
               </h3>
+
+              <span className="tag">
+                {moment(post.createdAt).format("DD-MM-YYYY")}
+              </span>
+
               <p className="meta"></p>
             </div>
           );
